@@ -1,0 +1,28 @@
+@model SuqyaWaterSystem.Models.Customer
+
+<h2>إضافة زبون جديد</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" />
+    </div>
+    <div>
+        <label asp-for="Address"></label>
+        <input asp-for="Address" />
+    </div>
+    <div>
+        <label>المنطقة</label>
+        <select asp-for="AreaId">
+            @foreach (var area in ViewBag.Areas)
+            {
+                <option value="@area.Id">@area.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit">💾 حفظ</button>
+</form>
